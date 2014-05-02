@@ -378,9 +378,13 @@ if (Meteor.isServer) {
         if(title == null){
           title = "Untitled Story Happens";
         }
-
-        if (title.indexOf("|") !== -1) {
-         title = title.substring(0, title.indexOf("|"));
+        var index1 = title.indexOf("|");
+        var index2 = title.indexOf(" - ");
+        if (index1 !== -1) {
+          title = title.substring(0, index1);
+        }
+        else if (index2 !== -1) {
+          title = title.substring(0, index2);
         }
 
     }
